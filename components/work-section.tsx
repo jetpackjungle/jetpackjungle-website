@@ -2,24 +2,64 @@ import { ArrowUpRight } from "lucide-react"
 
 const projects = [
   {
-    title: "Brand Film",
-    client: "Horizon Tech",
-    year: "2026",
+    title: "Aviva",
+    slug: "aviva",
+    category: "Brand Film",
   },
   {
-    title: "Product Launch",
-    client: "Nova Audio",
-    year: "2025",
+    title: "West Cork Distillers",
+    slug: "westcorkdistillers",
+    category: "Commercial",
   },
   {
-    title: "Documentary",
-    client: "Ocean Foundation",
-    year: "2025",
+    title: "Candido",
+    slug: "candido",
+    category: "Documentary",
   },
   {
-    title: "Commercial",
-    client: "Metro Coffee",
-    year: "2024",
+    title: "Sport Ireland",
+    slug: "sportireland",
+    category: "Campaign",
+  },
+  {
+    title: "Her Sport",
+    slug: "hersport",
+    category: "Campaign",
+  },
+  {
+    title: "IOM",
+    slug: "iom",
+    category: "Awareness",
+  },
+  {
+    title: "Guinness",
+    slug: "guinness",
+    category: "Commercial",
+  },
+  {
+    title: "Department of Justice",
+    slug: "doj",
+    category: "Public Service",
+  },
+  {
+    title: "West Cork Distillers",
+    slug: "wcd",
+    category: "Series",
+  },
+  {
+    title: "The Shoot",
+    slug: "theshoot",
+    category: "Behind the Scenes",
+  },
+  {
+    title: "IOM Ireland",
+    slug: "iomireland",
+    category: "Awareness",
+  },
+  {
+    title: "NDC",
+    slug: "ndc",
+    category: "Documentary",
   },
 ]
 
@@ -35,7 +75,7 @@ export function WorkSection() {
           {projects.map((project, index) => (
             <a
               key={index}
-              href="#"
+              href={`/work/${project.slug}`}
               className="group flex items-center justify-between py-8 md:py-12 hover:opacity-70 transition-opacity"
             >
               <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8">
@@ -43,13 +83,10 @@ export function WorkSection() {
                   {project.title}
                 </span>
                 <span className="text-muted-foreground">
-                  {project.client}
+                  {project.category}
                 </span>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-sm text-muted-foreground hidden md:inline">
-                  {project.year}
-                </span>
                 <ArrowUpRight 
                   size={24} 
                   className="text-foreground opacity-0 group-hover:opacity-100 transition-opacity" 
