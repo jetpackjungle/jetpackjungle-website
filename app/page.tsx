@@ -1,16 +1,23 @@
+import { Header } from "@/components/header"
+import { Hero } from "@/components/hero"
+import { WorkSection } from "@/components/work-section"
+import { ServicesSection } from "@/components/services-section"
+import { AboutSection } from "@/components/about-section"
+import { ContactSection } from "@/components/contact-section"
+import { Footer } from "@/components/footer"
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center font-sans">
-      <main className="flex w-full max-w-3xl flex-col items-center gap-8 px-6 py-16 text-center sm:items-start sm:text-left">
-        <div className="flex flex-col gap-4">
-          <h1 className="text-4xl font-bold tracking-tight">
-            jetpack-jungle
-          </h1>
-          <p className="max-w-md text-lg text-muted-foreground">
-            To get started, send a prompt or modify this page directly.
-          </p>
-        </div>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <WorkSection />
+        <ServicesSection />
+        <AboutSection />
+        <ContactSection />
       </main>
-    </div>
-  );
+      <Footer />
+    </>
+  )
 }
