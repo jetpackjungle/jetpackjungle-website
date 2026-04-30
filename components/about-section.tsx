@@ -2,7 +2,7 @@ export function AboutSection() {
   return (
     <section id="about" className="py-24 md:py-32 px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-sm tracking-widest uppercase text-muted-foreground mb-16">
+        <h2 className="text-3xl md:text-4xl font-medium text-white mb-16">
           About
         </h2>
 

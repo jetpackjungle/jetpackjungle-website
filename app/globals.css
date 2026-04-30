@@ -120,7 +120,22 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    scroll-padding-top: 5.5rem;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-black text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif text-white;
+    letter-spacing: 0;
   }
 }

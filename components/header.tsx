@@ -1,14 +1,112 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Menu, X } from "lucide-react"
+
+const HEADER_IDLE_DELAY = 1800
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true)
+  const [isHeroVisible, setIsHeroVisible] = useState(true)
+  const [isHeaderHovered, setIsHeaderHovered] = useState(false)
+  const [hasHeaderFocus, setHasHeaderFocus] = useState(false)
+  const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const shouldKeepHeaderVisible = isMenuOpen || isHeaderHovered || hasHeaderFocus
+
+  useEffect(() => {
+    const clearHideTimer = () => {
+      if (hideTimerRef.current) {
+        clearTimeout(hideTimerRef.current)
+        hideTimerRef.current = null
+      }
+    }
+
+    const scheduleHide = () => {
+      clearHideTimer()
+
+      if (shouldKeepHeaderVisible) {
+        return
+      }
+
+      hideTimerRef.current = setTimeout(() => {
+        setIsHeaderVisible(false)
+      }, HEADER_IDLE_DELAY)
+    }
+
+    const revealHeader = () => {
+      setIsHeaderVisible(true)
+      scheduleHide()
+    }
+
+    if (shouldKeepHeaderVisible) {
+      setIsHeaderVisible(true)
+      clearHideTimer()
+
+      return clearHideTimer
+    }
+
+    revealHeader()
+
+    const activityEvents = ["scroll", "wheel", "pointermove", "pointerdown", "keydown", "touchstart", "focusin"]
+
+    activityEvents.forEach((eventName) => {
+      window.addEventListener(eventName, revealHeader, { passive: true })
+    })
+
+    return () => {
+      activityEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, revealHeader)
+      })
+      clearHideTimer()
+    }
+  }, [shouldKeepHeaderVisible])
+
+  useEffect(() => {
+    const hero = document.getElementById("hero")
+
+    if (!hero) {
+      setIsHeroVisible(false)
+      return
+    }
+
+    const updateHeroVisibility = () => {
+      const { bottom, top } = hero.getBoundingClientRect()
+      setIsHeroVisible(top < window.innerHeight && bottom > 0)
+    }
+
+    updateHeroVisibility()
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroVisible(entry.isIntersecting)
+      },
+      { threshold: 0.01 },
+    )
+
+    observer.observe(hero)
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-[background-color,border-color,opacity] duration-500 ease-out motion-reduce:transition-none ${
+        isHeroVisible ? "border-transparent bg-transparent" : "border-white/10 bg-black"
+      } ${
+        isHeaderVisible ? "opacity-100" : "pointer-events-none opacity-0"
+      }`}
+      onPointerEnter={() => setIsHeaderHovered(true)}
+      onPointerLeave={() => setIsHeaderHovered(false)}
+      onFocus={() => setHasHeaderFocus(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          setHasHeaderFocus(false)
+        }
+      }}
+    >
       <nav className="flex items-center justify-between px-6 py-6 md:px-12">
         <Link href="/" className="text-lg md:text-xl font-bold tracking-wider uppercase text-white font-serif">
           Jetpack Jungle
