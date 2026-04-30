@@ -1,6 +1,9 @@
+"use client"
+
+import { useState } from "react"
 import { ArrowUpRight } from "lucide-react"
 
-const projects = [
+const creativeProjects = [
   {
     title: "Aviva",
     slug: "aviva",
@@ -57,24 +60,61 @@ const projects = [
     category: "Awareness",
   },
   {
-    title: "NDC",
-    slug: "ndc",
-    category: "Documentary",
+    title: "Irish Cancer Society",
+    slug: "irishcancersociety",
+    category: "Awareness",
+  },
+]
+
+const corporateProjects = [
+  {
+    title: "Glenveagh",
+    slug: "glenveagh",
+    category: "Corporate",
   },
 ]
 
 export function WorkSection() {
+  const [activeTab, setActiveTab] = useState<"creative" | "corporate">("creative")
+  
+  const projects = activeTab === "creative" ? creativeProjects : corporateProjects
+
   return (
     <section id="work" className="py-24 md:py-32 px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-sm tracking-widest uppercase text-muted-foreground mb-16">
-          Selected Work
-        </h2>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-16">
+          <h2 className="text-sm tracking-widest uppercase text-muted-foreground">
+            Selected Work
+          </h2>
+          
+          <div className="flex items-center gap-1 p-1 bg-secondary rounded-none">
+            <button
+              onClick={() => setActiveTab("creative")}
+              className={`px-6 py-2 text-sm font-medium transition-all ${
+                activeTab === "creative"
+                  ? "bg-foreground text-background"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Creative
+            </button>
+            <button
+              onClick={() => setActiveTab("corporate")}
+              className={`px-6 py-2 text-sm font-medium transition-all ${
+                activeTab === "corporate"
+                  ? "bg-foreground text-background"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Corporate
+            </button>
+          </div>
+        </div>
 
         <div className="divide-y divide-border">
           {projects.map((project, index) => (
             <a
-              key={index}
+              key={`${activeTab}-${index}`}
               href={`/work/${project.slug}`}
               className="group flex items-center justify-between py-8 md:py-12 hover:opacity-70 transition-opacity"
             >
