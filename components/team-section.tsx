@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import Image from "next/image"
+import Image from "next/image";
 
 const team = [
   {
@@ -19,11 +19,6 @@ const team = [
     image: "/team/larissa.jpg",
   },
   {
-    name: "Luke",
-    role: "Director + D.O.P",
-    image: "/team/luke.jpg",
-  },
-  {
     name: "Camila",
     role: "D.O.P",
     image: "/team/camila.jpg",
@@ -33,20 +28,20 @@ const team = [
     role: "Production Assistant",
     image: "/team/aenea.jpg",
   },
-]
+];
 
 export function TeamSection() {
   return (
-    <section id="team" className="py-24 md:py-32 px-6 md:px-12 bg-card">
+    <section id="team" className="bg-card px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-32">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-sm tracking-widest uppercase text-muted-foreground mb-16">
+        <h2 className="mb-10 text-3xl font-medium text-white sm:mb-14 md:mb-16 md:text-4xl">
           The Team
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-6 md:grid-cols-3 md:gap-8">
           {team.map((member, index) => (
             <div key={index} className="group">
-              <div className="relative aspect-[3/4] overflow-hidden bg-secondary mb-4">
+              <div className="relative mb-4 aspect-[3/4] overflow-hidden bg-secondary">
                 <Image
                   src={member.image}
                   alt={member.name}
@@ -54,16 +49,12 @@ export function TeamSection() {
                   className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                 />
               </div>
-              <h3 className="text-lg font-medium text-foreground">
-                {member.name}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                {member.role}
-              </p>
+              <h3 className="text-base font-medium text-foreground sm:text-lg">{member.name}</h3>
+              <p className="text-sm leading-snug text-muted-foreground">{member.role}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

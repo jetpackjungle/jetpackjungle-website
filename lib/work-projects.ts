@@ -1,0 +1,168 @@
+export type WorkProject = {
+  title: string;
+  slug: string;
+  category: string;
+  thumbnail: string | null;
+  videoUrl: string | null;
+  client: string;
+  details: string;
+};
+
+export const creativeProjects: WorkProject[] = [
+  {
+    title: "Aviva",
+    slug: "aviva",
+    category: "Brand Film",
+    thumbnail: "/work/aviva.jpg",
+    videoUrl: null,
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "West Cork Distillers",
+    slug: "westcorkdistillers",
+    category: "Commercial",
+    thumbnail: "/work/westcorkdistillers.jpg",
+    videoUrl: "https://vimeo.com/913670742",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "Candido",
+    slug: "candido",
+    category: "Documentary",
+    thumbnail: "/work/candido.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=nfSmv9zB7BA",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "Sport Ireland",
+    slug: "sportireland",
+    category: "Campaign",
+    thumbnail: "/work/sportireland.jpg",
+    videoUrl: "https://vimeo.com/913667078",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "Her Sport",
+    slug: "hersport",
+    category: "Campaign",
+    thumbnail: "/work/hersport.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=StR49EVlgQY",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "IOM",
+    slug: "iom",
+    category: "Awareness",
+    thumbnail: "/work/iom.jpg",
+    videoUrl: null,
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "Guinness",
+    slug: "guinness",
+    category: "Commercial",
+    thumbnail: "/work/guinness.jpg",
+    videoUrl: null,
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "Department of Justice",
+    slug: "doj",
+    category: "Public Service",
+    thumbnail: "/work/doj.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=I7yQcyPWu8M",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "West Cork Distillers",
+    slug: "wcd",
+    category: "Series",
+    thumbnail: "/work/wcd.jpg",
+    videoUrl: "https://vimeo.com/913670742",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "The Shoot",
+    slug: "theshoot",
+    category: "Behind the Scenes",
+    thumbnail: "/work/theshoot.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=z8soUnuLjIY",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "IOM Ireland",
+    slug: "iomireland",
+    category: "Awareness",
+    thumbnail: "/work/iomireland.jpg",
+    videoUrl: null,
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "Irish Cancer Society",
+    slug: "irishcancersociety",
+    category: "Awareness",
+    thumbnail: null,
+    videoUrl: "https://www.youtube.com/watch?v=zPEaZ1aej0c",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+];
+
+export const corporateProjects: WorkProject[] = [
+  {
+    title: "Glenveagh",
+    slug: "glenveagh",
+    category: "Corporate",
+    thumbnail: null,
+    videoUrl: "https://www.youtube.com/watch?v=lkkabqHg2Ak&t",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "Glenveagh",
+    slug: "glenveagh-2",
+    category: "Corporate",
+    thumbnail: null,
+    videoUrl: "https://www.youtube.com/watch?v=U5oTQq_60GM&t",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "Common Purpose",
+    slug: "commonpurpose",
+    category: "Corporate",
+    thumbnail: null,
+    videoUrl: "https://www.youtube.com/watch?v=BmQQpckdAq8",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "ELFC",
+    slug: "elfc",
+    category: "Corporate",
+    thumbnail: null,
+    videoUrl: "https://www.youtube.com/watch?v=MpgmzkL1MzI",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+  {
+    title: "GORM",
+    slug: "gorm",
+    category: "Corporate",
+    thumbnail: null,
+    videoUrl: "https://www.youtube.com/watch?v=QrBUNRu_O6k",
+    client: "Lorem ipsum",
+    details: "Lorem ipsum",
+  },
+];

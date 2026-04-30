@@ -1,10 +1,117 @@
-"use client"
+"use client";
 
-import { ArrowDown } from "lucide-react"
+import { useEffect, useRef, useState } from "react";
+
+const HERO_TEXT_IDLE_DELAY = 1800;
 
 export function Hero() {
+  const [isHeroTextVisible, setIsHeroTextVisible] = useState(false);
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
+  const [isTouchViewport, setIsTouchViewport] = useState(false);
+  const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(pointer: coarse)");
+    const updateTouchViewport = () => setIsTouchViewport(mediaQuery.matches);
+
+    updateTouchViewport();
+    mediaQuery.addEventListener("change", updateTouchViewport);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateTouchViewport);
+    };
+  }, []);
+
+  useEffect(() => {
+    const clearHideTimer = () => {
+      if (hideTimerRef.current) {
+        clearTimeout(hideTimerRef.current);
+        hideTimerRef.current = null;
+      }
+    };
+
+    const scheduleHide = () => {
+      clearHideTimer();
+
+      if (!isHeroVisible || isTouchViewport) {
+        return;
+      }
+
+      hideTimerRef.current = setTimeout(() => {
+        setIsHeroTextVisible(false);
+      }, HERO_TEXT_IDLE_DELAY);
+    };
+
+    const revealHeroText = () => {
+      setIsHeroTextVisible(true);
+      scheduleHide();
+    };
+
+    if (!isHeroVisible) {
+      setIsHeroTextVisible(false);
+      clearHideTimer();
+
+      return clearHideTimer;
+    }
+
+    if (isTouchViewport) {
+      setIsHeroTextVisible(true);
+      clearHideTimer();
+
+      return clearHideTimer;
+    }
+
+    const activityEvents = [
+      "scroll",
+      "wheel",
+      "pointermove",
+      "pointerdown",
+      "keydown",
+      "touchstart",
+      "focusin",
+    ];
+
+    activityEvents.forEach((eventName) => {
+      window.addEventListener(eventName, revealHeroText, { passive: true });
+    });
+
+    return () => {
+      activityEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, revealHeroText);
+      });
+      clearHideTimer();
+    };
+  }, [isHeroVisible, isTouchViewport]);
+
+  useEffect(() => {
+    const hero = document.getElementById("hero");
+
+    if (!hero) {
+      setIsHeroVisible(false);
+      return;
+    }
+
+    const updateHeroVisibility = () => {
+      const { bottom, top } = hero.getBoundingClientRect();
+      setIsHeroVisible(top < window.innerHeight && bottom > 0);
+    };
+
+    updateHeroVisibility();
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroVisible(entry.isIntersecting);
+      },
+      { threshold: 0.01 },
+    );
+
+    observer.observe(hero);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section id="hero" className="relative h-svh min-h-[34rem] w-full overflow-hidden">
       {/* Video Background */}
       <video
         autoPlay
@@ -20,27 +127,20 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-end h-full px-6 pb-16 md:px-12 md:pb-24">
-        <div className="max-w-4xl">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-white leading-tight tracking-tight text-balance">
+      <div className="relative z-10 flex h-full flex-col justify-end px-4 pb-12 pt-24 sm:px-6 sm:pb-16 md:px-12 md:pb-24">
+        <div
+          className={`max-w-4xl transition-opacity duration-500 ease-out motion-reduce:transition-none ${
+            isHeroTextVisible ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+        >
+          <h1 className="text-4xl font-bold leading-tight text-white text-balance md:text-6xl lg:text-7xl">
             We craft cinematic stories that move audiences
           </h1>
-          <p className="mt-6 text-lg md:text-xl text-white/70 max-w-xl">
+          <p className="mt-5 max-w-xl text-base text-white sm:text-lg md:mt-6 md:text-xl">
             Full-service video production for brands that demand excellence
           </p>
         </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 right-6 md:right-12">
-          <a 
-            href="#work" 
-            className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
-          >
-            <span className="hidden md:inline">Scroll</span>
-            <ArrowDown size={16} className="animate-bounce" />
-          </a>
-        </div>
       </div>
     </section>
-  )
+  );
 }
