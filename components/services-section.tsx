@@ -77,14 +77,6 @@ export function ServicesSection() {
             </div>
           </div>
         </div>
-
-        <div className="mt-10 grid gap-4 border-t border-white/10 pt-8 text-sm text-muted-foreground md:grid-cols-3">
-          <p className="text-foreground">
-            Creative direction, production, and finishing under one roof.
-          </p>
-          <p>Built for brand teams, agencies, founders, and campaign leads.</p>
-          <p>Scaled from nimble content shoots to full cinematic productions.</p>
-        </div>
       </div>
     </section>
   );
