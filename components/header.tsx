@@ -10,22 +10,22 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
       <nav className="flex items-center justify-between px-6 py-6 md:px-12">
-        <Link href="/" className="text-sm font-medium tracking-widest uppercase text-white">
+        <Link href="/" className="text-lg md:text-xl font-bold tracking-wider uppercase text-white font-serif">
           Jetpack Jungle
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-12">
-          <Link href="#work" className="text-sm text-white/80 hover:text-white transition-colors">
+          <Link href="#work" className="text-base text-white/90 hover:text-white transition-colors font-medium">
             Work
           </Link>
-          <Link href="#services" className="text-sm text-white/80 hover:text-white transition-colors">
+          <Link href="#services" className="text-base text-white/90 hover:text-white transition-colors font-medium">
             Services
           </Link>
-          <Link href="#about" className="text-sm text-white/80 hover:text-white transition-colors">
+          <Link href="#about" className="text-base text-white/90 hover:text-white transition-colors font-medium">
             About
           </Link>
-          <Link href="#contact" className="text-sm text-white/80 hover:text-white transition-colors">
+          <Link href="#contact" className="text-base text-white/90 hover:text-white transition-colors font-medium">
             Contact
           </Link>
         </div>
