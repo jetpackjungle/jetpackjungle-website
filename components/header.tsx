@@ -7,8 +7,6 @@ import { ContactFormModal } from "@/components/contact-form-modal";
 
 const HEADER_IDLE_DELAY = 1800;
 
-const HEADER_IDLE_DELAY = 1800
-
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);

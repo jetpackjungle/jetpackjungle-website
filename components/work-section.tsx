@@ -214,35 +214,6 @@ export function WorkSection() {
     }
   };
 
-  useEffect(() => {
-    return () => {
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current)
-      }
-    }
-  }, [])
-
-  const selectProject = (project: WorkProject) => {
-    if (closeTimerRef.current) {
-      clearTimeout(closeTimerRef.current)
-      closeTimerRef.current = null
-    }
-
-    setSelectedProject(project)
-    setModalOpen(true)
-  }
-
-  const handleModalOpenChange = (open: boolean) => {
-    setModalOpen(open)
-
-    if (!open) {
-      closeTimerRef.current = setTimeout(() => {
-        setSelectedProject(null)
-        closeTimerRef.current = null
-      }, 220)
-    }
-  }
-
   return (
     <section id="work" className="bg-background px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-32">
       <div className="max-w-7xl mx-auto">
