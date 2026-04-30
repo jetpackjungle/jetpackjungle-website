@@ -6,11 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "check": "bash -c 'failed=0; oxfmt --write . || failed=1; oxlint --deny-warnings --fix . || failed=1; echo \"[check] tsc...\"; tsc --noEmit || failed=1; exit $failed'",
+    "check:full": "bash -c 'failed=0; bun run check || failed=1; bun run build || failed=1; exit $failed'",
+    "audit": "fallow dead-code --unused-files --unused-deps --unlisted-deps --circular-deps --fail-on-issues --quiet",
+    "audit:changed": "fallow audit --quiet",
+    "audit:full": "fallow --fail-on-issues --quiet"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
-    "@vercel/analytics": "1.6.1",
     "@radix-ui/react-accordion": "1.2.12",
     "@radix-ui/react-alert-dialog": "1.1.15",
     "@radix-ui/react-aspect-ratio": "1.1.8",
@@ -38,6 +41,7 @@
     "@radix-ui/react-toggle": "1.1.10",
     "@radix-ui/react-toggle-group": "1.1.11",
     "@radix-ui/react-tooltip": "1.2.8",
+    "@vercel/analytics": "1.6.1",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -54,6 +58,7 @@
     "react-hook-form": "^7.54.1",
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.0",
+    "resend": "^6.12.2",
     "sonner": "^1.7.1",
     "tailwind-merge": "^3.3.1",
     "vaul": "^1.1.2",
@@ -64,9 +69,12 @@
     "@types/node": "^22",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "fallow": "^2.56.0",
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.62.0",
     "postcss": "^8.5",
     "tailwindcss": "^4.2.0",
     "tw-animate-css": "1.3.3",
-    "typescript": "5.7.3"
+    "typescript": "^6.0.3"
   }
 }
