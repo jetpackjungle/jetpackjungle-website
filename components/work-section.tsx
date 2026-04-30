@@ -99,6 +99,13 @@ const corporateProjects = [
     thumbnail: "/work/glenveagh.jpg",
     videoId: "lkkabqHg2Ak",
   },
+  {
+    title: "Common Purpose",
+    slug: "commonpurpose",
+    category: "Corporate",
+    thumbnail: "/work/commonpurpose.jpg",
+    videoId: "BmQQpckdAq8",
+  },
 ]
 
 function VideoCard({ project }: { project: typeof creativeProjects[0] }) {
