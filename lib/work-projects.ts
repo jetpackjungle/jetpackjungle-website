@@ -100,7 +100,7 @@ export const creativeProjects: WorkProject[] = [
     details: "Lorem ipsum",
   },
   {
-    title: "IOM Ireland",
+    title: "IOM",
     slug: "iomireland",
     category: "Awareness",
     thumbnail: "/work/iomireland.jpg",
