@@ -1,93 +1,87 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState } from "react"
 import { Play } from "lucide-react"
 import Image from "next/image"
+
+// Helper to get YouTube thumbnail from video ID
+function getYouTubeThumbnail(videoId: string | null) {
+  if (!videoId) return "https://placehold.co/600x400/1a1a1a/666666?text=Coming+Soon"
+  return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+}
 
 const creativeProjects = [
   {
     title: "Aviva",
     slug: "aviva",
     category: "Brand Film",
-    thumbnail: "/work/aviva.jpg",
-    videoId: "aviva",
+    videoId: null, // No YouTube ID yet
   },
   {
     title: "West Cork Distillers",
     slug: "westcorkdistillers",
     category: "Commercial",
-    thumbnail: "/work/westcork.jpg",
-    videoId: "westcorkdistillers",
+    videoId: null,
   },
   {
     title: "Candido",
     slug: "candido",
     category: "Documentary",
-    thumbnail: "/work/candido.jpg",
-    videoId: "candido",
+    videoId: null,
   },
   {
     title: "Sport Ireland",
     slug: "sportireland",
     category: "Campaign",
-    thumbnail: "/work/sportireland.jpg",
-    videoId: "sportireland",
+    videoId: null,
   },
   {
     title: "Her Sport",
     slug: "hersport",
     category: "Campaign",
-    thumbnail: "/work/hersport.jpg",
-    videoId: "hersport",
+    videoId: null,
   },
   {
     title: "IOM",
     slug: "iom",
     category: "Awareness",
-    thumbnail: "/work/iom.jpg",
-    videoId: "iom",
+    videoId: null,
   },
   {
     title: "Guinness",
     slug: "guinness",
     category: "Commercial",
-    thumbnail: "/work/guinness.jpg",
-    videoId: "guinness",
+    videoId: null,
   },
   {
     title: "Department of Justice",
     slug: "doj",
     category: "Public Service",
-    thumbnail: "/work/doj.jpg",
-    videoId: "doj",
+    videoId: null,
   },
   {
     title: "West Cork Distillers",
     slug: "wcd",
     category: "Series",
-    thumbnail: "/work/wcd.jpg",
-    videoId: "wcd",
+    videoId: null,
   },
   {
     title: "The Shoot",
     slug: "theshoot",
     category: "Behind the Scenes",
-    thumbnail: "/work/theshoot.jpg",
-    videoId: "theshoot",
+    videoId: null,
   },
   {
     title: "IOM Ireland",
     slug: "iomireland",
     category: "Awareness",
-    thumbnail: "/work/iomireland.jpg",
-    videoId: "iomireland",
+    videoId: null,
   },
   {
     title: "Irish Cancer Society",
     slug: "irishcancersociety",
     category: "Awareness",
-    thumbnail: "/work/irishcancer.jpg",
-    videoId: "irishcancersociety",
+    videoId: null,
   },
 ]
 
@@ -96,35 +90,31 @@ const corporateProjects = [
     title: "Glenveagh",
     slug: "glenveagh",
     category: "Corporate",
-    thumbnail: "/work/glenveagh.jpg",
     videoId: "lkkabqHg2Ak",
   },
   {
     title: "Common Purpose",
     slug: "commonpurpose",
     category: "Corporate",
-    thumbnail: "/work/commonpurpose.jpg",
     videoId: "BmQQpckdAq8",
   },
 ]
 
 function VideoCard({ project }: { project: typeof creativeProjects[0] }) {
-  const [isHovered, setIsHovered] = useState(false)
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const thumbnail = getYouTubeThumbnail(project.videoId)
 
   return (
     <a
       href={`/work/${project.slug}`}
       className="group block"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative aspect-video overflow-hidden bg-secondary mb-4">
         <Image
-          src={project.thumbnail}
+          src={thumbnail}
           alt={project.title}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
+          unoptimized
         />
         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
