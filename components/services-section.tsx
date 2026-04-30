@@ -6,7 +6,6 @@ const services = [
       "Compelling narratives that capture your brand essence and connect with audiences on an emotional level.",
     detail:
       "Concept, scripting, direction, and delivery for launches, campaigns, and evergreen brand worlds.",
-    deliverables: ["Strategy", "Story", "Production"],
   },
   {
     number: "02",
@@ -15,7 +14,6 @@ const services = [
       "High-impact advertising content designed to drive engagement and deliver measurable results.",
     detail:
       "Fast-moving spots built for broadcast, paid social, and the places your audience actually watches.",
-    deliverables: ["Campaigns", "Cutdowns", "Social"],
   },
   {
     number: "03",
@@ -24,7 +22,6 @@ const services = [
       "Authentic storytelling that brings real stories to life with cinematic quality and depth.",
     detail:
       "Character-led films with a sharp editorial spine, crafted for impact without sanding off the truth.",
-    deliverables: ["Research", "Interviews", "Editorial"],
   },
   {
     number: "04",
@@ -33,73 +30,52 @@ const services = [
       "Expert editing, color grading, and sound design to elevate your footage to its full potential.",
     detail:
       "A full finishing pipeline for films that need rhythm, polish, and a final grade that lands.",
-    deliverables: ["Edit", "Grade", "Sound"],
   },
-]
+];
 
 export function ServicesSection() {
   return (
-    <section
-      id="services"
-      className="relative overflow-hidden bg-secondary px-6 py-24 md:px-12 md:py-32"
-    >
-      <div className="absolute inset-x-0 top-0 h-px bg-white/10" />
-      <div className="absolute inset-x-0 bottom-0 h-px bg-white/10" />
-
+    <section id="services" className="bg-background px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-32">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-14 grid gap-8 md:mb-20 md:grid-cols-[0.9fr_1.1fr] md:items-end">
-          <h2 className="text-4xl font-medium leading-tight text-white md:text-6xl">
-            Services
-          </h2>
-          <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground md:justify-self-end">
-            From the first rough idea to the final export, we build films with a
-            production brain and a storyteller&apos;s pulse.
+        <h2 className="mb-10 text-3xl font-medium text-white sm:mb-14 md:mb-16 md:text-4xl">
+          Services
+        </h2>
+
+        <div className="grid gap-12 md:grid-cols-2 md:gap-24">
+          <p className="text-2xl font-medium leading-snug text-foreground text-balance sm:text-3xl md:text-4xl">
+            Production, direction, and finishing for films that need to feel considered from the
+            first frame.
           </p>
-        </div>
 
-        <div className="grid gap-px overflow-hidden border border-white/10 bg-white/10 md:grid-cols-2">
-          {services.map((service) => (
-            <article
-              key={service.number}
-              className="group relative min-h-[22rem] bg-secondary p-6 transition-colors duration-300 hover:bg-card md:p-8 lg:p-10"
-            >
-              <div className="absolute inset-x-6 top-0 h-px origin-left scale-x-0 bg-accent transition-transform duration-300 group-hover:scale-x-100 md:inset-x-8 lg:inset-x-10" />
+          <div className="flex flex-col">
+            <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
+              From the first rough idea to the final export, we build films with a production brain
+              and a storyteller&apos;s pulse.
+            </p>
 
-              <div className="flex h-full flex-col">
-                <div className="mb-12 flex items-start justify-between gap-6">
-                  <span className="font-mono text-sm text-muted-foreground">
-                    {service.number}
-                  </span>
-                  <div className="h-12 w-12 border border-white/15 bg-background/50 transition-colors duration-300 group-hover:border-accent/70">
-                    <div className="h-full w-full bg-[linear-gradient(135deg,transparent_48%,rgb(255_255_255_/_0.18)_49%,rgb(255_255_255_/_0.18)_51%,transparent_52%)] transition-opacity duration-300 group-hover:opacity-40" />
+            <div className="mt-12 border-t border-border">
+              {services.map((service) => (
+                <article
+                  key={service.number}
+                  className="group grid gap-3 border-b border-border py-7 sm:gap-5 sm:py-8 md:grid-cols-[4.5rem_1fr]"
+                >
+                  <span className="font-mono text-sm text-muted-foreground">{service.number}</span>
+
+                  <div>
+                    <h3 className="text-xl font-medium leading-tight text-foreground sm:text-2xl md:text-3xl">
+                      {service.title}
+                    </h3>
+                    <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+                      {service.description}
+                    </p>
+                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-foreground/75">
+                      {service.detail}
+                    </p>
                   </div>
-                </div>
-
-                <div className="mt-auto">
-                  <h3 className="max-w-sm text-3xl font-medium leading-tight text-foreground md:text-4xl">
-                    {service.title}
-                  </h3>
-                  <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
-                    {service.description}
-                  </p>
-                  <p className="mt-4 max-w-xl text-sm leading-relaxed text-foreground/75">
-                    {service.detail}
-                  </p>
-
-                  <div className="mt-8 flex flex-wrap gap-2">
-                    {service.deliverables.map((deliverable) => (
-                      <span
-                        key={deliverable}
-                        className="border border-white/10 px-3 py-1 text-sm text-muted-foreground transition-colors duration-300 group-hover:border-accent/40 group-hover:text-foreground"
-                      >
-                        {deliverable}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </article>
-          ))}
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="mt-10 grid gap-4 border-t border-white/10 pt-8 text-sm text-muted-foreground md:grid-cols-3">
@@ -111,5 +87,5 @@ export function ServicesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

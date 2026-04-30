@@ -1,41 +1,60 @@
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react";
+import { SocialLinks } from "@/components/social-links";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-24 md:py-32 px-6 md:px-12 bg-secondary">
+    <section id="contact" className="bg-secondary px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-32">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-medium text-white mb-16">
+        <h2 className="mb-10 text-3xl font-medium text-white sm:mb-14 md:mb-16 md:text-4xl">
           Contact
         </h2>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-24">
           <div>
-            <p className="text-3xl md:text-5xl font-medium text-foreground leading-tight text-balance">
+            <p className="text-2xl font-medium leading-snug text-foreground text-balance sm:text-3xl md:text-4xl">
               {"Let's create something extraordinary together."}
             </p>
           </div>
           <div className="flex flex-col gap-8">
-            <a 
-              href="mailto:hello@jetpackjungle.com"
-              className="group flex items-center gap-2 text-xl md:text-2xl text-foreground hover:text-accent transition-colors"
+            <a
+              href="mailto:questions@jetpackjungle.com"
+              className="group flex min-w-0 items-center gap-2 break-all text-xl text-foreground transition-colors hover:text-accent md:text-2xl"
             >
-              hello@jetpackjungle.com
-              <ArrowUpRight size={20} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+              questions@jetpackjungle.com
+              <ArrowUpRight
+                size={20}
+                className="shrink-0 opacity-0 transition-opacity group-hover:opacity-100"
+              />
             </a>
-            <div className="flex gap-8 pt-8 border-t border-border">
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Instagram
+            <a
+              href="tel:+353832067752"
+              className="text-xl md:text-2xl text-foreground hover:text-accent transition-colors"
+            >
+              +353832067752
+            </a>
+            <address className="text-base leading-relaxed text-muted-foreground not-italic">
+              77 Camden Street Lower,
+              <br />
+              Dublin, D02 XE80
+              <br />
+              Ireland
+            </address>
+            <p className="max-w-md text-base leading-relaxed text-muted-foreground">
+              If you are a freelancer looking to join our freelance list, fill out this{" "}
+              <a
+                href="#"
+                className="text-foreground underline underline-offset-4 hover:text-accent transition-colors"
+              >
+                Freelancer Form
               </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Vimeo
-              </a>
-              <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                LinkedIn
-              </a>
+              .
+            </p>
+            <div className="pt-8 border-t border-border">
+              <SocialLinks />
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
