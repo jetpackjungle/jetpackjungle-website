@@ -26,16 +26,16 @@ export function AboutSection() {
             </p>
             <div className="grid grid-cols-3 gap-4 border-t border-border pt-8 sm:gap-8">
               <div>
-                <span className="text-2xl font-medium text-foreground sm:text-3xl">50+</span>
-                <p className="text-sm text-muted-foreground mt-1">Projects</p>
+                <span className="text-2xl font-medium text-foreground sm:text-3xl"></span>
+                <p className="text-sm text-muted-foreground mt-1"></p>
               </div>
               <div>
-                <span className="text-2xl font-medium text-foreground sm:text-3xl">8</span>
-                <p className="text-sm text-muted-foreground mt-1">Years</p>
+                <span className="text-2xl font-medium text-foreground sm:text-3xl"></span>
+                <p className="text-sm text-muted-foreground mt-1"></p>
               </div>
               <div>
-                <span className="text-2xl font-medium text-foreground sm:text-3xl">12</span>
-                <p className="text-sm text-muted-foreground mt-1">Awards</p>
+                <span className="text-2xl font-medium text-foreground sm:text-3xl"></span>
+                <p className="text-sm text-muted-foreground mt-1"></p>
               </div>
             </div>
           </div>
