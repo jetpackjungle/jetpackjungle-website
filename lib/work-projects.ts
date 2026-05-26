@@ -12,7 +12,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "Aviva",
     slug: "aviva",
-    category: "Brand Film",
+    category: "",
     thumbnail: "/work/aviva.jpg",
     videoUrl: null,
     client: "Lorem ipsum",
@@ -21,7 +21,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "West Cork Distillers",
     slug: "westcorkdistillers",
-    category: "Commercial",
+    category: "",
     thumbnail: "/work/westcorkdistillers.jpg",
     videoUrl: "https://vimeo.com/913670742",
     client: "Lorem ipsum",
@@ -30,7 +30,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "Candido",
     slug: "candido",
-    category: "Documentary",
+    category: "\n",
     thumbnail: "/work/candido.jpg",
     videoUrl: "https://www.youtube.com/watch?v=nfSmv9zB7BA",
     client: "Lorem ipsum",
@@ -39,7 +39,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "Sport Ireland",
     slug: "sportireland",
-    category: "Campaign",
+    category: "",
     thumbnail: "/work/sportireland.jpg",
     videoUrl: "https://vimeo.com/913667078",
     client: "Lorem ipsum",
@@ -48,7 +48,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "Her Sport",
     slug: "hersport",
-    category: "Campaign",
+    category: "",
     thumbnail: "/work/hersport.jpg",
     videoUrl: "https://www.youtube.com/watch?v=StR49EVlgQY",
     client: "Lorem ipsum",
@@ -57,7 +57,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "IOM",
     slug: "iom",
-    category: "Awareness",
+    category: "",
     thumbnail: "/work/iom.jpg",
     videoUrl: null,
     client: "Lorem ipsum",
@@ -66,7 +66,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "Guinness",
     slug: "guinness",
-    category: "Commercial",
+    category: "",
     thumbnail: "/work/guinness.jpg",
     videoUrl: null,
     client: "Lorem ipsum",
@@ -75,7 +75,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "Department of Justice",
     slug: "doj",
-    category: "Public Service",
+    category: "",
     thumbnail: "/work/doj.jpg",
     videoUrl: "https://www.youtube.com/watch?v=I7yQcyPWu8M",
     client: "Lorem ipsum",
@@ -84,7 +84,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "West Cork Distillers",
     slug: "wcd",
-    category: "Series",
+    category: "",
     thumbnail: "/work/wcd.jpg",
     videoUrl: "https://vimeo.com/913670742",
     client: "Lorem ipsum",
@@ -93,7 +93,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "The Shoot",
     slug: "theshoot",
-    category: "Behind the Scenes",
+    category: "",
     thumbnail: "/work/theshoot.jpg",
     videoUrl: "https://www.youtube.com/watch?v=z8soUnuLjIY",
     client: "Lorem ipsum",
@@ -102,7 +102,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "IOM",
     slug: "iomireland",
-    category: "Awareness",
+    category: "",
     thumbnail: "/work/iomireland.jpg",
     videoUrl: null,
     client: "Lorem ipsum",
@@ -111,7 +111,7 @@ export const creativeProjects: WorkProject[] = [
   {
     title: "Irish Cancer Society",
     slug: "irishcancersociety",
-    category: "Awareness",
+    category: "",
     thumbnail: null,
     videoUrl: "https://www.youtube.com/watch?v=zPEaZ1aej0c",
     client: "Lorem ipsum",

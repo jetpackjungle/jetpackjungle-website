@@ -93,7 +93,6 @@ function VideoCard({
         <h3 className="text-xl md:text-2xl font-semibold text-foreground group-hover:text-foreground/80 transition-colors font-serif">
           {project.title}
         </h3>
-        <span className="text-base text-muted-foreground">{project.category}</span>
       </div>
     </button>
   );
