@@ -16,7 +16,7 @@ const team = [
   {
     name: "Larissa",
     role: "Director",
-    image: "/team/larissa.jpg",
+    image: "/work/portra-400.jpg",
   },
   {
     name: "Camila",
