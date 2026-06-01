@@ -252,7 +252,7 @@ export function WorkSection() {
 
         {/* Showreel */}
         <div className="mb-10 md:mb-14">
-          <div className="relative aspect-video w-full overflow-hidden bg-secondary">
+          <div className="relative w-full overflow-hidden bg-secondary" style={{ paddingBottom: "min(56.25%, 65vh)" }}>
             {activeTab === "creative" ? (
               <iframe
                 key="creative-showreel"
