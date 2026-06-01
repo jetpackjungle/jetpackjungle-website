@@ -5,7 +5,6 @@ import { Play } from "lucide-react";
 import Image from "next/image";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { corporateProjects, creativeProjects, type WorkProject } from "@/lib/work-projects";
-import { ShowreelModal } from "@/components/showreel-modal";
 
 function getYouTubeId(videoUrl: string | null) {
   if (!videoUrl) return null;
@@ -188,11 +187,7 @@ export function WorkSection() {
   const [activeTab, setActiveTab] = useState<"creative" | "corporate">("creative");
   const [selectedProject, setSelectedProject] = useState<WorkProject | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [showreelOpen, setShowreelOpen] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const showreelVimeoId = activeTab === "creative" ? "1190123579" : "1186264537";
-  const showreelTitle = activeTab === "creative" ? "Commercial Showreel" : "Corporate & Events Showreel";
 
   const projects = activeTab === "creative" ? creativeProjects : corporateProjects;
 
@@ -228,8 +223,9 @@ export function WorkSection() {
   return (
     <section id="work" className="bg-background px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-32">
       <div className="max-w-7xl mx-auto">
+        {/* Selected Work heading + tab filters */}
         <div className="mb-10 flex flex-col items-center gap-6 text-center sm:mb-14 md:mb-16 md:flex-row md:justify-between md:text-left">
-          <h2 className="text-3xl md:text-4xl font-medium text-white">Showreel</h2>
+          <h2 className="text-3xl md:text-4xl font-medium text-white">Selected Work</h2>
 
           <div className="flex w-full max-w-sm items-center justify-center gap-1 bg-secondary p-1 sm:w-auto">
             <button
@@ -255,25 +251,6 @@ export function WorkSection() {
           </div>
         </div>
 
-        {/* Showreel button */}
-        <div className="mb-10 md:mb-14">
-          <button
-            type="button"
-            onClick={() => setShowreelOpen(true)}
-            className="group inline-flex items-center gap-3 border border-white/20 bg-white/5 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 md:text-base"
-          >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/50 transition-colors group-hover:border-white">
-              <Play className="h-3 w-3 fill-current" />
-            </span>
-            Watch Showreel
-          </button>
-        </div>
-
-        {/* Selected Work heading */}
-        <div className="mb-10 md:mb-14">
-          <h2 className="text-3xl md:text-4xl font-medium text-white">Selected Work</h2>
-        </div>
-
         <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <VideoCard key={`${activeTab}-${index}`} project={project} onSelect={selectProject} />
@@ -282,12 +259,6 @@ export function WorkSection() {
       </div>
 
       <VideoModal project={selectedProject} open={modalOpen} onOpenChange={handleModalOpenChange} />
-      <ShowreelModal
-        open={showreelOpen}
-        onOpenChange={setShowreelOpen}
-        vimeoId={showreelVimeoId}
-        title={showreelTitle}
-      />
     </section>
   );
 }
