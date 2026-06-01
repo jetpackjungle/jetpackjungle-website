@@ -216,7 +216,9 @@ export function WorkSection() {
   return (
     <section id="work" className="bg-background px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-32">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-10 flex flex-col items-center gap-6 text-center sm:mb-14 md:mb-16 md:flex-row md:justify-end md:text-left">
+        <div className="mb-10 flex flex-col items-center gap-6 text-center sm:mb-14 md:mb-16 md:flex-row md:justify-between md:text-left">
+          <h2 className="text-3xl md:text-4xl font-medium text-white">Showreel</h2>
+
           <div className="flex w-full max-w-sm items-center justify-center gap-1 bg-secondary p-1 sm:w-auto">
             <button
               onClick={() => setActiveTab("creative")}
