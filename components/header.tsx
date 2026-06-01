@@ -166,7 +166,7 @@ export function Header() {
               onClick={openContactForm}
               className="border border-transparent bg-white/5 px-4 py-2 text-base font-medium text-white/90 transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:border-primary focus-visible:bg-primary focus-visible:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              Contact
+              Let&apos;s Talk
             </button>
           </div>
 
@@ -211,7 +211,7 @@ export function Header() {
                 onClick={openContactForm}
                 className="border border-transparent bg-transparent px-6 py-3 text-2xl text-foreground transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:border-primary focus-visible:bg-primary focus-visible:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                Contact
+                Let&apos;s Talk
               </button>
             </div>
           </div>
