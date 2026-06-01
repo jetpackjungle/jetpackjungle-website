@@ -216,9 +216,7 @@ export function WorkSection() {
   return (
     <section id="work" className="bg-background px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-32">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-10 flex flex-col items-center gap-6 text-center sm:mb-14 md:mb-16 md:flex-row md:justify-between md:text-left">
-          <h2 className="text-3xl md:text-4xl font-medium text-white">Selected Work</h2>
-
+        <div className="mb-10 flex flex-col items-center gap-6 text-center sm:mb-14 md:mb-16 md:flex-row md:justify-end md:text-left">
           <div className="flex w-full max-w-sm items-center justify-center gap-1 bg-secondary p-1 sm:w-auto">
             <button
               onClick={() => setActiveTab("creative")}
@@ -244,7 +242,7 @@ export function WorkSection() {
         </div>
 
         {/* Showreel */}
-        <div className="mb-16 md:mb-20">
+        <div className="mb-10 md:mb-14">
           <div className="relative aspect-video w-full overflow-hidden bg-secondary">
             {activeTab === "creative" ? (
               <iframe
@@ -266,6 +264,11 @@ export function WorkSection() {
               />
             )}
           </div>
+        </div>
+
+        {/* Selected Work heading */}
+        <div className="mb-10 md:mb-14">
+          <h2 className="text-3xl md:text-4xl font-medium text-white">Selected Work</h2>
         </div>
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
