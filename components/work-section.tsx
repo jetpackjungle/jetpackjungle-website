@@ -243,36 +243,6 @@ export function WorkSection() {
           </div>
         </div>
 
-        {/* Showreel */}
-        <div className="mb-16 md:mb-20">
-          <div className="relative aspect-video w-full overflow-hidden bg-secondary">
-            {activeTab === "creative" ? (
-              <iframe
-                key="creative-showreel"
-                className="absolute inset-0 h-full w-full"
-                src="https://player.vimeo.com/video/913670742?autoplay=0&loop=1&muted=1&title=0&byline=0&portrait=0"
-                title="Commercial Showreel"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-              />
-            ) : (
-              <iframe
-                key="corporate-showreel"
-                className="absolute inset-0 h-full w-full"
-                src="https://player.vimeo.com/video/913667078?autoplay=0&loop=1&muted=1&title=0&byline=0&portrait=0"
-                title="Corporate & Events Showreel"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-              />
-            )}
-            <div className="pointer-events-none absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent px-6 py-5">
-              <p className="text-sm font-medium uppercase tracking-widest text-white/70">
-                {activeTab === "creative" ? "Commercial Showreel" : "Corporate & Events Showreel"}
-              </p>
-            </div>
-          </div>
-        </div>
-
         <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <VideoCard key={`${activeTab}-${index}`} project={project} onSelect={selectProject} />

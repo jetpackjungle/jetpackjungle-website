@@ -112,7 +112,7 @@ export const creativeProjects: WorkProject[] = [
     title: "Irish Cancer Society",
     slug: "irishcancersociety",
     category: "",
-    thumbnail: "/work/ICS.png",
+    thumbnail: "/work/portra-400.jpg",
     videoUrl: "https://www.youtube.com/watch?v=zPEaZ1aej0c",
     client: "Lorem ipsum",
     details: "Lorem ipsum",
