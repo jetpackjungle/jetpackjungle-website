@@ -5,6 +5,7 @@ import { Play } from "lucide-react";
 import Image from "next/image";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { corporateProjects, creativeProjects, type WorkProject } from "@/lib/work-projects";
+import { ShowreelModal } from "@/components/showreel-modal";
 
 function getYouTubeId(videoUrl: string | null) {
   if (!videoUrl) return null;
@@ -187,7 +188,11 @@ export function WorkSection() {
   const [activeTab, setActiveTab] = useState<"creative" | "corporate">("creative");
   const [selectedProject, setSelectedProject] = useState<WorkProject | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [showreelOpen, setShowreelOpen] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const showreelVimeoId = activeTab === "creative" ? "1190123579" : "1186264537";
+  const showreelTitle = activeTab === "creative" ? "Commercial Showreel" : "Corporate & Events Showreel";
 
   const projects = activeTab === "creative" ? creativeProjects : corporateProjects;
 
@@ -250,29 +255,18 @@ export function WorkSection() {
           </div>
         </div>
 
-        {/* Showreel */}
+        {/* Showreel button */}
         <div className="mb-10 md:mb-14">
-          <div className="relative w-full overflow-hidden bg-secondary" style={{ paddingBottom: "min(56.25%, 65vh)" }}>
-            {activeTab === "creative" ? (
-              <iframe
-                key="creative-showreel"
-                className="absolute inset-0 h-full w-full"
-                src="https://player.vimeo.com/video/1190123579?autoplay=0&loop=1&muted=1&title=0&byline=0&portrait=0"
-                title="Commercial Showreel"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-              />
-            ) : (
-              <iframe
-                key="corporate-showreel"
-                className="absolute inset-0 h-full w-full"
-                src="https://player.vimeo.com/video/1186264537?autoplay=0&loop=1&muted=1&title=0&byline=0&portrait=0"
-                title="Corporate & Events Showreel"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-              />
-            )}
-          </div>
+          <button
+            type="button"
+            onClick={() => setShowreelOpen(true)}
+            className="group inline-flex items-center gap-3 border border-white/20 bg-white/5 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 md:text-base"
+          >
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/50 transition-colors group-hover:border-white">
+              <Play className="h-3 w-3 fill-current" />
+            </span>
+            Watch Showreel
+          </button>
         </div>
 
         {/* Selected Work heading */}
@@ -288,6 +282,12 @@ export function WorkSection() {
       </div>
 
       <VideoModal project={selectedProject} open={modalOpen} onOpenChange={handleModalOpenChange} />
+      <ShowreelModal
+        open={showreelOpen}
+        onOpenChange={setShowreelOpen}
+        vimeoId={showreelVimeoId}
+        title={showreelTitle}
+      />
     </section>
   );
 }
