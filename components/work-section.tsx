@@ -162,9 +162,9 @@ function VideoModal({
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-medium text-foreground md:text-2xl">Details</h3>
+                  <h3 className="text-lg font-medium text-foreground md:text-2xl">Services</h3>
                   <p className="mt-3 text-xl leading-relaxed text-muted-foreground md:mt-4 md:text-3xl">
-                    {project.details}
+                    {project.services}
                   </p>
                 </div>
               </div>
