@@ -158,8 +158,6 @@ export function Hero() {
       <ShowreelModal
         open={showreelOpen}
         onOpenChange={setShowreelOpen}
-        vimeoId="1190123579"
-        title="Showreel"
       />
     </section>
   );
