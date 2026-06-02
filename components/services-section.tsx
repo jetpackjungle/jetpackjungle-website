@@ -58,7 +58,7 @@ export function ServicesSection() {
             </p>
 
             {/* Image Gallery */}
-            <div className="mt-10 grid gap-4 grid-cols-2 sm:mt-12 md:mt-14">
+            <div className="mt-10 grid gap-4 grid-cols-1 sm:mt-12 md:mt-14">
               <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-secondary">
                 <Image
                   src="/services/production-monitor.webp"
