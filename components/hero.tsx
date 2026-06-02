@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Play } from "lucide-react";
+import { ShowreelModal } from "@/components/showreel-modal";
 
 const HERO_TEXT_IDLE_DELAY = 1800;
 
@@ -8,6 +10,7 @@ export function Hero() {
   const [isHeroTextVisible, setIsHeroTextVisible] = useState(false);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
   const [isTouchViewport, setIsTouchViewport] = useState(false);
+  const [showreelOpen, setShowreelOpen] = useState(false);
   const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -137,10 +140,27 @@ export function Hero() {
             We craft cinematic stories that move audiences
           </h1>
           <p className="mt-5 max-w-xl text-base text-white sm:text-lg md:mt-6 md:text-xl">
-            Full-service video production for brands that demand excellence
+            Jetpack Jungle is a Dublin-based creative video agency. Concept to delivery for brands that want work worth watching.
           </p>
+          <button
+            type="button"
+            onClick={() => setShowreelOpen(true)}
+            className="mt-8 inline-flex items-center gap-3 border border-white/30 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 md:text-base"
+          >
+            <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/50">
+              <Play className="h-3 w-3 fill-current" />
+            </span>
+            Watch Showreel
+          </button>
         </div>
       </div>
+
+      <ShowreelModal
+        open={showreelOpen}
+        onOpenChange={setShowreelOpen}
+        vimeoId="1190123579"
+        title="Showreel"
+      />
     </section>
   );
 }

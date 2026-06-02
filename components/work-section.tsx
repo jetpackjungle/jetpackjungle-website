@@ -93,7 +93,6 @@ function VideoCard({
         <h3 className="text-xl md:text-2xl font-semibold text-foreground group-hover:text-foreground/80 transition-colors font-serif">
           {project.title}
         </h3>
-        <span className="text-base text-muted-foreground">{project.category}</span>
       </div>
     </button>
   );
@@ -163,10 +162,17 @@ function VideoModal({
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-medium text-foreground md:text-2xl">Details</h3>
-                  <p className="mt-3 text-xl leading-relaxed text-muted-foreground md:mt-4 md:text-3xl">
-                    {project.details}
-                  </p>
+                  <h3 className="text-lg font-medium text-foreground md:text-2xl">Services</h3>
+                  <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1 md:mt-4">
+                    {project.services.split("|").map((s) => (
+                      <span key={s.trim()} className="whitespace-nowrap text-xl text-muted-foreground md:text-3xl">
+                        {s.trim()}
+                        {project.services.split("|").indexOf(s) < project.services.split("|").length - 1 && (
+                          <span className="ml-2 text-border">|</span>
+                        )}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -217,6 +223,7 @@ export function WorkSection() {
   return (
     <section id="work" className="bg-background px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-32">
       <div className="max-w-7xl mx-auto">
+        {/* Selected Work heading + tab filters */}
         <div className="mb-10 flex flex-col items-center gap-6 text-center sm:mb-14 md:mb-16 md:flex-row md:justify-between md:text-left">
           <h2 className="text-3xl md:text-4xl font-medium text-white">Selected Work</h2>
 
