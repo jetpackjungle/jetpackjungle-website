@@ -17,19 +17,19 @@ const services = [
   },
   {
     number: "03",
-    title: "Documentaries",
+    title: "Corporate Video",
     description:
-      "Authentic storytelling that brings real stories to life with cinematic quality and depth.",
+      "Professional video content for internal communications, case studies, testimonials, and brand storytelling. ",
     detail:
-      "Character-led films with a sharp editorial spine, crafted for impact without sanding off the truth.",
+      "Every organisation has a story worth telling. We just make sure it looks the part.",
   },
   {
     number: "04",
     title: "Post-Production",
     description:
-      "Expert editing, color grading, and sound design to elevate your footage to its full potential.",
+      "Professional editing, colour grading, and sound design to elevate your footage to its full potential.",
     detail:
-      "A full finishing pipeline for films that need rhythm, polish, and a final grade that lands.",
+      "Whether you shot it yourself or need a finishing pipeline for a larger production, we'll make it land.",
   },
 ];
 
@@ -43,8 +43,7 @@ export function ServicesSection() {
 
         <div className="grid gap-12 md:grid-cols-2 md:gap-24">
           <p className="text-2xl font-medium leading-snug text-foreground text-balance sm:text-3xl md:text-4xl">
-            Production, direction, and finishing for films that need to feel considered from the
-            first frame.
+            Full-service video production based in Dublin. We handle everything from the first conversation to the final export.
           </p>
 
           <div className="flex flex-col">
