@@ -50,37 +50,39 @@ export function ContactFormModal({
 
     const form = event.currentTarget;
     const formData = new FormData(form);
+
+    const name = [
+      String(formData.get("firstName") ?? ""),
+    ].filter(Boolean).join(" ");
+
     const payload = {
-      firstName: String(formData.get("firstName") ?? ""),
-      company: String(formData.get("company") ?? ""),
+      access_key: "8d6e7c3a-3e0f-4de9-90a9-d7bcd3a7a94c",
+      name,
       email: String(formData.get("email") ?? ""),
-      phone: String(formData.get("phone") ?? ""),
+      company: String(formData.get("company") ?? ""),
       message: String(formData.get("message") ?? ""),
-      website: String(formData.get("website") ?? ""),
+      // Honeypot field — Web3Forms ignores submissions where this is filled
+      botcheck: "",
     };
 
     setFormStatus("submitting");
     setErrorMessage("");
 
     try {
-      const response = await fetch("/api/form", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(payload),
       });
       const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(data.error || "Something went wrong");
+      if (!data.success) {
+        throw new Error(data.message || "Something went wrong");
       }
 
       form.reset();
       setFormStatus("success");
-      trackGoogleAnalyticsEvent("generate_lead", {
-        method: "contact_form",
-      });
+      trackGoogleAnalyticsEvent("generate_lead", { method: "contact_form" });
     } catch (error) {
       setFormStatus("error");
       setErrorMessage(error instanceof Error ? error.message : "Something went wrong");
@@ -232,7 +234,7 @@ export function ContactFormModal({
                   <CircleCheck className="size-4 text-accent" strokeWidth={1.5} />
                   <AlertTitle>Message sent</AlertTitle>
                   <AlertDescription>
-                    Thanks for reaching out. We will get back to you as soon as possible.
+                    Thanks, we&apos;ll be in touch soon.
                   </AlertDescription>
                 </Alert>
               ) : null}
