@@ -177,13 +177,6 @@ function VideoModal({
                     ))}
                   </p>
                 </div>
-
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground/60">Year</p>
-                  <p className="mt-2 text-xl font-medium text-foreground md:text-2xl">
-                    {project.year}
-                  </p>
-                </div>
               </div>
             </div>
           </aside>
