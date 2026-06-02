@@ -145,7 +145,7 @@ export function Hero() {
           <button
             type="button"
             onClick={() => setShowreelOpen(true)}
-            className="mt-8 inline-flex items-center gap-3 border border-white/30 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 md:text-base"
+            className="mt-8 inline-flex items-center gap-3 border border-white/30 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 md:text-base"
           >
             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-white/50">
               <Play className="h-3 w-3 fill-current" />

@@ -138,7 +138,9 @@ export function ContactFormModal({
 
                 <p className="max-w-xl">
                   <a
-                    href="#"
+                    href="https://forms.gle/4x8gAsxkAZeoyAsJA"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-foreground underline underline-offset-4 transition-colors hover:text-accent"
                   >
                     Freelance form here
