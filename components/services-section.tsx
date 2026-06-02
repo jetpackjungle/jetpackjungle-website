@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const services = [
   {
     number: "01",
@@ -59,6 +61,28 @@ export function ServicesSection() {
               From the first rough idea to the final export, we build films with a production brain
               and a storyteller&apos;s pulse.
             </p>
+
+            {/* Image Gallery */}
+            <div className="mt-10 grid gap-4 grid-cols-2 sm:mt-12 md:mt-14">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-secondary">
+                <Image
+                  src="/services/production-monitor.webp"
+                  alt="On-set production monitor showing filmed footage"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-secondary">
+                <Image
+                  src="/services/clapperboard.webp"
+                  alt="Filmmaker holding clapperboard during production"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+            </div>
 
             <div className="mt-12 border-t border-border">
               {services.map((service) => (
