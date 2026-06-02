@@ -137,7 +137,7 @@ export function Hero() {
           }`}
         >
           <h1 className="text-4xl font-bold leading-tight text-white text-balance md:text-6xl lg:text-7xl">
-            We craft cinematic stories that move audiences
+            We craft cinematic content that moves people
           </h1>
           <p className="mt-5 max-w-xl text-base text-white sm:text-lg md:mt-6 md:text-xl">
             Jetpack Jungle is a Dublin-based creative video agency. Concept to delivery for brands that want work worth watching.
