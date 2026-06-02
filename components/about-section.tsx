@@ -15,12 +15,12 @@ export function AboutSection() {
           </div>
           <div className="flex flex-col gap-8">
             <p className="text-muted-foreground leading-relaxed">
-              Founded in 2018, Jetpack Jungle has grown from a small production house into a
+              Founded in 2022, Jetpack Jungle has grown from a one-man edit suit into a
               full-service creative agency. We believe in the power of visual storytelling to
               transform brands and move audiences.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Our team brings together decades of combined experience in film, advertising, and
+              We work with a diverse team of trusted collaborators bringing together decades of combined experience in film, advertising, and
               digital content creation. We partner with brands who share our commitment to quality
               and authenticity.
             </p>
