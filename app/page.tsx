@@ -4,7 +4,6 @@ import { WorkSection } from "@/components/work-section";
 import { BrandWall } from "@/components/brand-wall";
 import { ServicesSection } from "@/components/services-section";
 import { AboutSection } from "@/components/about-section";
-import { TeamSection } from "@/components/team-section";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
         <WorkSection />
         <BrandWall />
         <AboutSection />
-        <TeamSection />
         <ServicesSection />
       </main>
       <Footer />

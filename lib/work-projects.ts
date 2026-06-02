@@ -6,6 +6,7 @@ export type WorkProject = {
   videoUrl: string | null;
   client: string;
   services: string;
+  year: string;
 };
 
 export const creativeProjects: WorkProject[] = [
@@ -17,6 +18,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://vimeo.com/1189112084",
     client: "Aviva",
     services: "Creative | Post-Production",
+    year: "2025",
   },
   {
     title: "West Cork Distillers",
@@ -26,6 +28,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=7qf7FcTK-lo",
     client: "West Cork Distillers",
     services: "Creative | Production | Post-Production",
+    year: "2024",
   },
   {
     title: "Candido",
@@ -35,6 +38,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=nfSmv9zB7BA",
     client: "Candido",
     services: "Creative | Production | Post-Production",
+    year: "2024",
   },
   {
     title: "Sport Ireland",
@@ -44,6 +48,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://vimeo.com/913667078",
     client: "Sport Ireland",
     services: "Post-Production",
+    year: "2024",
   },
   {
     title: "Her Sport",
@@ -53,6 +58,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=StR49EVlgQY",
     client: "Her Sport",
     services: "Production",
+    year: "2024",
   },
   {
     title: "IOM",
@@ -62,6 +68,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=pwnZzV2R0J4",
     client: "IOM",
     services: "Post-Production",
+    year: "2023",
   },
   {
     title: "Guinness",
@@ -71,6 +78,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=XlCog_WXZKk",
     client: "Guinness",
     services: "Post-Production",
+    year: "2023",
   },
   {
     title: "Department of Justice",
@@ -80,6 +88,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=I7yQcyPWu8M",
     client: "DOJ",
     services: "Post-Production",
+    year: "2023",
   },
   {
     title: "West Cork Distillers",
@@ -89,6 +98,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://vimeo.com/913670742",
     client: "West Cork Distillers",
     services: "Creative | Production | Post-Production",
+    year: "2023",
   },
   {
     title: "The Shoot",
@@ -98,6 +108,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=z8soUnuLjIY",
     client: "The Shoot",
     services: "Creative | Production | Post-Production",
+    year: "2023",
   },
   {
     title: "IOM",
@@ -107,6 +118,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=QaubtNmdXQE",
     client: "IOM",
     services: "Post-Production",
+    year: "2023",
   },
   {
     title: "Irish Cancer Society",
@@ -116,6 +128,7 @@ export const creativeProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=zPEaZ1aej0c",
     client: "Irish Cancer Society",
     services: "Post-Production",
+    year: "2022",
   },
 ];
 
@@ -128,6 +141,7 @@ export const corporateProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=lkkabqHg2Ak&t",
     client: "Glenveagh",
     services: "Production | Post-Production",
+    year: "2025",
   },
   {
     title: "Glenveagh",
@@ -137,6 +151,7 @@ export const corporateProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=U5oTQq_60GM&t",
     client: "Glenveagh",
     services: "Production | Post-Production",
+    year: "2024",
   },
   {
     title: "Common Purpose",
@@ -146,6 +161,7 @@ export const corporateProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=BmQQpckdAq8",
     client: "Common Purpose",
     services: "Production | Post-Production",
+    year: "2025",
   },
   {
     title: "Common Purpose",
@@ -155,6 +171,7 @@ export const corporateProjects: WorkProject[] = [
     videoUrl: "https://vimeo.com/1197452572",
     client: "Common Purpose",
     services: "Production | Post-Production",
+    year: "2025",
   },
   {
     title: "ELFC",
@@ -164,6 +181,7 @@ export const corporateProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=MpgmzkL1MzI",
     client: "ELFC",
     services: "Production | Post-Production",
+    year: "2024",
   },
   {
     title: "GORM",
@@ -173,5 +191,6 @@ export const corporateProjects: WorkProject[] = [
     videoUrl: "https://www.youtube.com/watch?v=QrBUNRu_O6k",
     client: "GORM",
     services: "Production | Post-Production",
+    year: "2024",
   },
 ];

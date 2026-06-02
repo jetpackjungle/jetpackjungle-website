@@ -144,35 +144,45 @@ function VideoModal({
 
           <aside className="overflow-y-auto border-t border-border bg-background px-4 py-8 sm:px-6 md:px-10 md:py-12 lg:border-l lg:border-t-0 lg:px-14 lg:py-16 xl:px-16">
             <div className="mx-auto flex max-w-2xl flex-col gap-8 md:gap-10">
-              <div className="flex flex-col gap-4">
-                <DialogTitle className="text-4xl font-medium leading-none text-balance md:text-6xl xl:text-7xl">
-                  {project.title}
-                </DialogTitle>
-                <DialogDescription className="text-xl text-muted-foreground md:text-3xl">
-                  {project.category}
-                </DialogDescription>
-              </div>
+              {/* Back button */}
+              <button
+                type="button"
+                onClick={() => onOpenChange(false)}
+                className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none"
+              >
+                <span className="text-base leading-none transition-transform group-hover:-translate-x-0.5">←</span>
+                Back to Selected Work
+              </button>
 
+              {/* Metadata */}
               <div className="grid gap-7 border-t border-border pt-8 md:gap-8 md:pt-10">
+                {/* Hidden accessible title/description */}
+                <DialogTitle className="sr-only">{project.title}</DialogTitle>
+                <DialogDescription className="sr-only">{project.category}</DialogDescription>
+
                 <div>
-                  <h3 className="text-lg font-medium text-foreground md:text-2xl">Client</h3>
-                  <p className="mt-3 text-xl text-muted-foreground md:mt-4 md:text-3xl">
+                  <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground/60">Client</p>
+                  <p className="mt-2 text-xl font-medium text-foreground md:text-2xl">
                     {project.client}
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-medium text-foreground md:text-2xl">Services</h3>
-                  <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1 md:mt-4">
-                    {project.services.split("|").map((s) => (
-                      <span key={s.trim()} className="whitespace-nowrap text-xl text-muted-foreground md:text-3xl">
-                        {s.trim()}
-                        {project.services.split("|").indexOf(s) < project.services.split("|").length - 1 && (
-                          <span className="ml-2 text-border">|</span>
-                        )}
+                  <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground/60">Services</p>
+                  <p className="mt-2 text-xl font-medium text-foreground md:text-2xl">
+                    {project.services.split("|").map((s, i, arr) => (
+                      <span key={s.trim()}>
+                        {s.trim()}{i < arr.length - 1 && <span className="mx-2 text-muted-foreground/40">|</span>}
                       </span>
                     ))}
-                  </div>
+                  </p>
+                </div>
+
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground/60">Year</p>
+                  <p className="mt-2 text-xl font-medium text-foreground md:text-2xl">
+                    {project.year}
+                  </p>
                 </div>
               </div>
             </div>

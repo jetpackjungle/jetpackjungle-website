@@ -144,22 +144,28 @@ export function Header() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-12">
             <Link
-              href="#work"
+              href="/#work"
               className="text-base text-white/90 hover:text-white transition-colors font-medium"
             >
               Work
             </Link>
             <Link
-              href="#services"
+              href="/#services"
               className="text-base text-white/90 hover:text-white transition-colors font-medium"
             >
               Services
             </Link>
             <Link
-              href="#about"
+              href="/#about"
               className="text-base text-white/90 hover:text-white transition-colors font-medium"
             >
               About
+            </Link>
+            <Link
+              href="/team"
+              className="text-base text-white/90 hover:text-white transition-colors font-medium"
+            >
+              Team
             </Link>
             <button
               type="button"
@@ -186,25 +192,32 @@ export function Header() {
           <div className="fixed inset-x-0 bottom-0 top-[4.75rem] overflow-y-auto bg-background/95 backdrop-blur-sm md:hidden">
             <div className="flex min-h-full flex-col items-center justify-center gap-8 px-6 py-10">
               <Link
-                href="#work"
+                href="/#work"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-2xl text-foreground hover:text-accent transition-colors"
               >
                 Work
               </Link>
               <Link
-                href="#services"
+                href="/#services"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-2xl text-foreground hover:text-accent transition-colors"
               >
                 Services
               </Link>
               <Link
-                href="#about"
+                href="/#about"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-2xl text-foreground hover:text-accent transition-colors"
               >
                 About
+              </Link>
+              <Link
+                href="/team"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl text-foreground hover:text-accent transition-colors"
+              >
+                Team
               </Link>
               <button
                 type="button"
