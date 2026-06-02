@@ -25,6 +25,14 @@ const services = [
   },
   {
     number: "04",
+    title: "Events",
+    description:
+      "Live event coverage, highlight reels, and conference films. We capture the energy of your event and turn it into content that works long after the day is done.",
+    detail:
+      "From festival highlights to corporate events, we document moments that matter and craft them into compelling stories.",
+  },
+  {
+    number: "05",
     title: "Post-Production",
     description:
       "Professional editing, colour grading, and sound design to elevate your footage to its full potential.",
