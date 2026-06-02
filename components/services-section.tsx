@@ -45,36 +45,36 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-background px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:py-32">
+    <section id="services" className="bg-background px-4 py-16 sm:px-6 sm:py-20 md:px-12 md:pb-20 md:pt-32">
       <div className="mx-auto max-w-7xl">
         <h2 className="mb-10 text-3xl font-medium text-white sm:mb-14 md:mb-16 md:text-4xl">
           Services
         </h2>
 
-        <div className="grid gap-12 md:grid-cols-2 md:gap-24">
-          <div>
+        <div className="grid items-stretch gap-12 md:grid-cols-2 md:gap-24">
+          <div className="flex flex-col">
             <p className="text-2xl font-medium leading-snug text-foreground text-balance sm:text-3xl md:text-4xl">
               Full-service video production based in Dublin. We handle everything from the first conversation to the final export.
             </p>
 
-            {/* Image Gallery */}
-            <div className="mt-10 grid gap-4 grid-cols-1 sm:mt-12 md:mt-14">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-secondary">
+            {/* Image Gallery — bottom aligns with end of services list */}
+            <div className="mt-10 flex flex-1 flex-col gap-4 sm:mt-12 md:mt-14">
+              <div className="relative min-h-0 flex-1 overflow-hidden bg-secondary">
                 <Image
                   src="/services/production-monitor.webp"
                   alt="On-set production monitor showing filmed footage"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, 35vw"
                 />
               </div>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-secondary">
+              <div className="relative min-h-0 flex-1 overflow-hidden bg-secondary">
                 <Image
                   src="/services/clapperboard.webp"
                   alt="Filmmaker holding clapperboard during production"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 25vw"
+                  sizes="(max-width: 768px) 100vw, 35vw"
                 />
               </div>
             </div>
