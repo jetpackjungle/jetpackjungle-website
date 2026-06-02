@@ -52,14 +52,9 @@ export function ServicesSection() {
         </h2>
 
         <div className="grid gap-12 md:grid-cols-2 md:gap-24">
-          <p className="text-2xl font-medium leading-snug text-foreground text-balance sm:text-3xl md:text-4xl">
-            Full-service video production based in Dublin. We handle everything from the first conversation to the final export.
-          </p>
-
-          <div className="flex flex-col">
-            <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
-              From the first rough idea to the final export, we build films with a production brain
-              and a storyteller&apos;s pulse.
+          <div>
+            <p className="text-2xl font-medium leading-snug text-foreground text-balance sm:text-3xl md:text-4xl">
+              Full-service video production based in Dublin. We handle everything from the first conversation to the final export.
             </p>
 
             {/* Image Gallery */}
@@ -83,6 +78,13 @@ export function ServicesSection() {
                 />
               </div>
             </div>
+          </div>
+
+          <div className="flex flex-col">
+            <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
+              From the first rough idea to the final export, we build films with a production brain
+              and a storyteller&apos;s pulse.
+            </p>
 
             <div className="mt-12 border-t border-border">
               {services.map((service) => (
