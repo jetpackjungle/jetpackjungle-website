@@ -59,7 +59,9 @@ export function ContactFormModal({
       access_key: "8d6e7c3a-3e0f-4de9-90a9-d7bcd3a7a94c",
       name,
       email: String(formData.get("email") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
       company: String(formData.get("company") ?? ""),
+      website: String(formData.get("website") ?? ""),
       message: String(formData.get("message") ?? ""),
       // Honeypot field — Web3Forms ignores submissions where this is filled
       botcheck: "",
@@ -201,6 +203,7 @@ export function ContactFormModal({
                     name="phone"
                     type="tel"
                     autoComplete="tel"
+                    required
                     disabled={isSubmitting}
                     className="h-12 rounded-none border-border bg-black/20 text-base"
                   />
@@ -213,6 +216,7 @@ export function ContactFormModal({
                   id="contact-message"
                   name="message"
                   minLength={10}
+                  required
                   disabled={isSubmitting}
                   className="min-h-40 resize-y rounded-none border-border bg-black/20 text-base md:min-h-56"
                 />
@@ -223,9 +227,9 @@ export function ContactFormModal({
                 <Input
                   id="contact-website"
                   name="website"
-                  type="url"
+                  type="text"
                   inputMode="url"
-                  placeholder="http://"
+                  placeholder="example.com"
                   disabled={isSubmitting}
                   className="h-12 rounded-none border-border bg-black/20 text-base"
                 />
