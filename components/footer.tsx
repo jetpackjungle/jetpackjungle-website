@@ -88,7 +88,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="text-white/60 transition-colors hover:text-white"
               >
-                Galactus
+                Galactus.dev
               </a>
             </span>
           </div>
