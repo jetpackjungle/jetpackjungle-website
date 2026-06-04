@@ -38,9 +38,28 @@ export function TeamSection() {
           The Team
         </h2>
 
+        {/* First row - 3 items */}
         <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-6 md:grid-cols-3 md:gap-8">
-          {team.map((member, index) => (
+          {team.slice(0, 3).map((member, index) => (
             <div key={index} className="group">
+              <div className="relative mb-4 aspect-[3/4] overflow-hidden bg-secondary">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
+              <h3 className="text-base font-medium text-foreground sm:text-lg">{member.name}</h3>
+              <p className="text-sm leading-snug text-muted-foreground">{member.role}</p>
+            </div>
+          ))}
+        </div>
+        
+        {/* Second row - centered 2 items */}
+        <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-6 md:mx-auto md:max-w-[66.666%] md:gap-8">
+          {team.slice(3).map((member, index) => (
+            <div key={index + 3} className="group">
               <div className="relative mb-4 aspect-[3/4] overflow-hidden bg-secondary">
                 <Image
                   src={member.image}
