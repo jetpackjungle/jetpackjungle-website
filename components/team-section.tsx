@@ -19,7 +19,7 @@ const team = [
     name: "Larissa",
     role: "Director",
     image: "/work/portra-400.jpg",
-    objectPosition: "center 20%",
+    objectPosition: "center",
   },
   {
     name: "Camila",
@@ -31,7 +31,7 @@ const team = [
     name: "Aenea",
     role: "Production Assistant",
     image: "/team/aenea.jpg",
-    objectPosition: "center 30%",
+    objectPosition: "center",
   },
 ];
 
@@ -43,9 +43,29 @@ export function TeamSection() {
           The Team
         </h2>
 
+        {/* First row - 3 members */}
         <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-6 md:grid-cols-3 md:gap-8">
-          {team.map((member, index) => (
+          {team.slice(0, 3).map((member, index) => (
             <div key={index} className="group">
+              <div className="relative mb-4 aspect-[3/4] overflow-hidden bg-secondary">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  style={{ objectPosition: member.objectPosition }}
+                />
+              </div>
+              <h3 className="text-base font-medium text-foreground sm:text-lg">{member.name}</h3>
+              <p className="text-sm leading-snug text-muted-foreground">{member.role}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Second row - 2 members centered */}
+        <div className="mt-8 flex justify-center gap-4 sm:gap-6 md:gap-8">
+          {team.slice(3).map((member, index) => (
+            <div key={index + 3} className="group w-[calc(50%-0.5rem)] sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1.333rem)]">
               <div className="relative mb-4 aspect-[3/4] overflow-hidden bg-secondary">
                 <Image
                   src={member.image}
