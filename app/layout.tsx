@@ -20,9 +20,32 @@ const shouldEnableGoogleAnalytics =
   process.env.NODE_ENV === "production" && process.env.VERCEL_ENV !== "preview";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://v0-jetpackjungle.vercel.app"),
   title: "Jetpack Jungle | Video Production Agency",
   description: "We craft cinematic stories that move audiences",
   generator: "v0.app",
+  openGraph: {
+    title: "Jetpack Jungle | Video Production Agency",
+    description: "We craft cinematic stories that move audiences",
+    url: "https://v0-jetpackjungle.vercel.app",
+    siteName: "Jetpack Jungle",
+    type: "website",
+    locale: "en_IE",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Jetpack Jungle — Cinematic Video Production",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jetpack Jungle | Video Production Agency",
+    description: "We craft cinematic stories that move audiences",
+    images: ["/og-image.png"],
+  },
   icons: {
     icon: [
       {
