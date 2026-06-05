@@ -29,7 +29,7 @@ const team = [
   },
   {
     name: "Aenea",
-    role: "Production Assistant",
+    role: "Consulting Producer",
     image: "/team/aenea.jpg",
     objectPosition: "center",
   },
