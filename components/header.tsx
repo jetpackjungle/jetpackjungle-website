@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ContactFormModal } from "@/components/contact-form-modal";
@@ -9,7 +8,6 @@ import { ContactFormModal } from "@/components/contact-form-modal";
 const HEADER_IDLE_DELAY = 1800;
 
 export function Header() {
-  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
@@ -116,22 +114,19 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-
-    if (params.get("contact") === "open") {
-      setIsContactFormOpen(true);
-
-      // Strip the query param through the Next.js router so the router's
-      // internal URL state stays in sync. Using window.history alone leaves
-      // Next thinking the URL is still "/?contact=open", which then gets
-      // carried into subsequent hash links like "/#work".
-      params.delete("contact");
-      const query = params.toString();
-      const cleanUrl =
-        window.location.pathname + (query ? `?${query}` : "") + window.location.hash;
-      router.replace(cleanUrl, { scroll: false });
+    // Opened via the /contact-us route, which sets this flag and redirects
+    // to a clean "/" URL. Reading from sessionStorage (instead of a query
+    // param) keeps the URL free of state that would otherwise be carried
+    // into in-page hash links like "/#work".
+    try {
+      if (sessionStorage.getItem("open-contact-form") === "1") {
+        sessionStorage.removeItem("open-contact-form");
+        setIsContactFormOpen(true);
+      }
+    } catch {
+      // Ignore storage access errors (e.g. privacy mode)
     }
-  }, [router]);
+  }, []);
 
   const openContactForm = () => {
     setIsMenuOpen(false);
