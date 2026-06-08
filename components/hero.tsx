@@ -12,6 +12,7 @@ export function Hero() {
   const [isTouchViewport, setIsTouchViewport] = useState(false);
   const [showreelOpen, setShowreelOpen] = useState(false);
   const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(pointer: coarse)");
@@ -113,16 +114,43 @@ export function Hero() {
     return () => observer.disconnect();
   }, []);
 
+  // iOS Safari can defer autoplay and pause the video when the element scrolls
+  // out of view. Explicitly call play() whenever the hero is visible so the
+  // background video starts on load and resumes after scrolling back up.
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    if (isHeroVisible) {
+      const playPromise = video.play();
+
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(() => {
+          // Autoplay can reject on some browsers; the muted + playsInline
+          // attributes make this unlikely, and we retry on the next visibility
+          // change, so we can safely ignore the rejection here.
+        });
+      }
+    }
+  }, [isHeroVisible]);
+
   return (
     <section id="hero" className="relative h-svh min-h-[34rem] w-full overflow-hidden">
       {/* Video Background */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
       >
+        {/* MP4 first so iOS Safari (which doesn't reliably support WebM) picks it */}
+        <source src="/videos/hero.mp4" type="video/mp4" />
         <source src="/videos/hero.webm" type="video/webm" />
       </video>
 
