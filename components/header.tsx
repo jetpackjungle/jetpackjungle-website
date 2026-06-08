@@ -113,6 +113,21 @@ export function Header() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("contact") === "open") {
+      setIsContactFormOpen(true);
+
+      // Clean the query param from the URL without a full navigation
+      params.delete("contact");
+      const query = params.toString();
+      const cleanUrl =
+        window.location.pathname + (query ? `?${query}` : "") + window.location.hash;
+      window.history.replaceState(null, "", cleanUrl);
+    }
+  }, []);
+
   const openContactForm = () => {
     setIsMenuOpen(false);
     setIsContactFormOpen(true);
