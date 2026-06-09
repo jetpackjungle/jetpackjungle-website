@@ -133,6 +133,30 @@ export function Header() {
     setIsContactFormOpen(true);
   };
 
+  // Smoothly scroll to an in-page section. Handling the click ourselves (only
+  // when already on the home page) avoids Next.js appending a second hash —
+  // e.g. clicking "Work" while at "/#work" would otherwise produce
+  // "/#work#work", an invalid target that breaks the scroll position.
+  const handleSectionClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string,
+  ) => {
+    if (window.location.pathname !== "/") {
+      // On other routes (e.g. /team) let the link navigate to "/#section".
+      return;
+    }
+
+    event.preventDefault();
+    setIsMenuOpen(false);
+
+    const section = document.getElementById(sectionId);
+
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", `/#${sectionId}`);
+    }
+  };
+
   return (
     <>
       <header
