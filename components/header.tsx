@@ -148,7 +148,7 @@ export function Header() {
           }
         }}
       >
-        <nav className="flex items-center justify-between px-4 py-4 sm:px-6 sm:py-5 md:px-12 md:py-6">
+        <nav className="relative z-10 flex items-center justify-between px-4 py-4 sm:px-6 sm:py-5 md:px-12 md:py-6">
           <Link
             href="/"
             className="font-serif text-lg font-bold uppercase tracking-wider text-white md:text-xl"
@@ -204,8 +204,8 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="fixed inset-x-0 bottom-0 top-[4.75rem] overflow-y-auto bg-background/95 backdrop-blur-sm md:hidden">
-            <div className="flex min-h-full flex-col items-center justify-center gap-8 px-6 py-10">
+          <div className="fixed inset-0 z-0 overflow-y-auto bg-background/85 backdrop-blur-md md:hidden">
+            <div className="flex min-h-full flex-col items-center justify-center gap-8 px-6 py-24">
               <Link
                 href="/#work"
                 onClick={() => setIsMenuOpen(false)}
