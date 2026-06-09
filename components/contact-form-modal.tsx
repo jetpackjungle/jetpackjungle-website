@@ -100,8 +100,8 @@ export function ContactFormModal({
           </button>
         </DialogTrigger>
       ) : null}
-      <DialogContent className="h-dvh max-h-dvh w-screen max-w-none translate-y-[-50%] gap-0 overflow-hidden rounded-none border-0 bg-black p-0 text-foreground shadow-none duration-300 ease-out data-[state=closed]:duration-200 data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:zoom-in-100 data-[state=closed]:zoom-out-100 sm:max-w-none">
-        <div className="grid h-full grid-rows-[auto_minmax(0,1fr)] lg:grid-cols-[minmax(0,0.9fr)_minmax(520px,1.1fr)] lg:grid-rows-1">
+      <DialogContent className="h-dvh max-h-dvh w-screen max-w-none translate-y-[-50%] gap-0 overflow-y-auto rounded-none border-0 bg-black p-0 text-foreground shadow-none duration-300 ease-out data-[state=closed]:duration-200 data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:zoom-in-100 data-[state=closed]:zoom-out-100 sm:max-w-none lg:overflow-hidden">
+        <div className="flex min-h-full flex-col lg:grid lg:h-full lg:grid-cols-[minmax(0,0.9fr)_minmax(520px,1.1fr)] lg:grid-rows-1">
           <section className="flex bg-black px-4 py-10 pr-12 sm:px-6 sm:py-12 md:px-10 md:py-16 lg:min-h-0 lg:px-14 xl:px-16">
             <div className="mx-auto flex w-full max-w-2xl flex-col justify-between gap-8 md:gap-12">
               <div className="flex flex-col gap-4 md:gap-6">
@@ -153,7 +153,7 @@ export function ContactFormModal({
           </section>
 
           <form
-            className="overflow-y-auto border-t border-border bg-background px-4 py-8 sm:px-6 md:px-10 md:py-12 lg:border-l lg:border-t-0 lg:px-14 lg:py-16 xl:px-16"
+            className="border-t border-border bg-background px-4 py-8 sm:px-6 md:px-10 md:py-12 lg:min-h-0 lg:overflow-y-auto lg:border-l lg:border-t-0 lg:px-14 lg:py-16 xl:px-16"
             onSubmit={handleSubmit}
           >
             <div className="mx-auto grid max-w-3xl gap-6 md:gap-8">
