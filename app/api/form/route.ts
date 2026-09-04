@@ -2,7 +2,7 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const RESEND_API_KEY = "re_R3AFDkYD_62HgFAYM6nP58pq8C21fFDCL";
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const CONTACT_FORM_FROM = "Jetpack Jungle <website@jetpackjungle.com>";
 const CONTACT_FORM_TO = "jite@jetpackjungle.com";
 const isProduction = process.env.NODE_ENV === "production";
