@@ -1,35 +1,50 @@
-# v0-video-agency-site
+# jetpackjungle-website
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Marketing site for **Jetpack Jungle**, a video production agency — built with [Next.js](https://nextjs.org) (App Router), TypeScript, Tailwind CSS and [Radix UI](https://www.radix-ui.com).
 
-## Built with v0
+## Getting started
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
-
-[Continue working on v0 →](https://v0.app/chat/projects/prj_KNPSWabFrvNjls20tAPhcSenCDLk)
-
-## Getting Started
-
-First, run the development server:
+Install dependencies and start the dev server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+bun install
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-## Learn More
+| Script | Description |
+| --- | --- |
+| `bun run dev` | Start the development server |
+| `bun run build` | Production build |
+| `bun run start` | Serve the production build |
+| `bun run check` | Format (oxfmt), lint (oxlint) and typecheck (tsc) |
+| `bun run check:full` | `check` plus a production build |
+| `bun run audit` | Dead code, unused and unlisted dependencies |
 
-To learn more, take a look at the following resources:
+## Project structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+```
+app/            App Router entry (layout, page) and the /api/form route
+components/     Page sections (hero, work, services, team, contact) and shared UI
+hooks/          Custom React hooks
+lib/            Utilities
+public/         Static assets
+styles/         Global styles
+```
 
-<a href="https://v0.app/chat/api/kiro/clone/colindotfun/v0-video-agency-site" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
+The homepage is composed in `app/page.tsx` from the section components in `components/`.
+
+## Environment
+
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics measurement ID (falls back to a default) |
+
+The contact form posts to `app/api/form/route.ts`, which sends email via [Resend](https://resend.com).
+
+## Deployment
+
+Deployed on Vercel. Every merge to `main` deploys automatically.
