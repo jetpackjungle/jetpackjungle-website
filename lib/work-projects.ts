@@ -127,7 +127,7 @@ export const corporateProjects: WorkProject[] = [
     thumbnail: "/work/glenveagh.png",
     videoUrl: "https://www.youtube.com/watch?v=lkkabqHg2Ak&t",
     client: "Glenveagh",
-    services: "Production | Post-Production",
+    services: "Post-Production",
   },
   {
     title: "Glenveagh",
@@ -136,7 +136,7 @@ export const corporateProjects: WorkProject[] = [
     thumbnail: "/work/glenveagh-1.png",
     videoUrl: "https://www.youtube.com/watch?v=U5oTQq_60GM&t",
     client: "Glenveagh",
-    services: "Production | Post-Production",
+    services: "Post-Production",
   },
   {
     title: "Common Purpose",

@@ -167,9 +167,6 @@ function VideoModal({
                     {project.services.split("|").map((s) => (
                       <span key={s.trim()} className="whitespace-nowrap text-xl text-muted-foreground md:text-3xl">
                         {s.trim()}
-                        {project.services.split("|").indexOf(s) < project.services.split("|").length - 1 && (
-                          <span className="ml-2 text-border">|</span>
-                        )}
                       </span>
                     ))}
                   </div>
