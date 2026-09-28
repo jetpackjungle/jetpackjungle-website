@@ -42,7 +42,9 @@ export function ContactSection() {
             <p className="max-w-md text-base leading-relaxed text-muted-foreground">
               If you are a freelancer looking to join our freelance list, fill out this{" "}
               <a
-                href="#"
+                href="https://forms.gle/7WpdoWC4kLzv7Act7"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-foreground underline underline-offset-4 hover:text-accent transition-colors"
               >
                 Freelancer Form
