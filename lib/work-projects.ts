@@ -121,6 +121,15 @@ export const creativeProjects: WorkProject[] = [
 
 export const corporateProjects: WorkProject[] = [
   {
+    title: "GORM",
+    slug: "gorm-2",
+    category: "Corporate",
+    thumbnail: "/work/gorm-1.jpg",
+    videoUrl: "https://vimeo.com/1209868940",
+    client: "GORM",
+    services: "Creative | Production | Post-Production",
+  },
+  {
     title: "Glenveagh",
     slug: "glenveagh",
     category: "Corporate",

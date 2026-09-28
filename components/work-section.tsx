@@ -164,9 +164,15 @@ function VideoModal({
                 <div>
                   <h3 className="text-lg font-medium text-foreground md:text-2xl">Services</h3>
                   <div className="mt-3 flex flex-wrap gap-x-2 gap-y-1 md:mt-4">
-                    {project.services.split("|").map((s) => (
-                      <span key={s.trim()} className="whitespace-nowrap text-xl text-muted-foreground md:text-3xl">
+                    {project.services.split("|").map((s, index, all) => (
+                      <span
+                        key={s.trim()}
+                        className="whitespace-nowrap text-xl text-muted-foreground md:text-3xl"
+                      >
                         {s.trim()}
+                        {index < all.length - 1 && (
+                          <span className="ml-2 text-muted-foreground">|</span>
+                        )}
                       </span>
                     ))}
                   </div>
