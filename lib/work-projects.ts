@@ -121,6 +121,15 @@ export const creativeProjects: WorkProject[] = [
 
 export const corporateProjects: WorkProject[] = [
   {
+    title: "Irish Life Health",
+    slug: "irish-life-health",
+    category: "Corporate",
+    thumbnail: "/work/irish-life-health.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=GdOTc-JCZDU",
+    client: "Irish Life Health",
+    services: "Post-Production",
+  },
+  {
     title: "GORM",
     slug: "gorm-2",
     category: "Corporate",
