@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { Play } from "lucide-react";
 import Image from "next/image";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
@@ -186,8 +187,17 @@ function VideoModal({
   );
 }
 
+const TAB_PATHS = {
+  creative: "/commercial",
+  corporate: "/corporate",
+} as const;
+
+type WorkTab = keyof typeof TAB_PATHS;
+
 export function WorkSection() {
-  const [activeTab, setActiveTab] = useState<"creative" | "corporate">("creative");
+  const pathname = usePathname();
+  const router = useRouter();
+  const activeTab: WorkTab = pathname === TAB_PATHS.corporate ? "corporate" : "creative";
   const [selectedProject, setSelectedProject] = useState<WorkProject | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -201,6 +211,17 @@ export function WorkSection() {
       }
     };
   }, []);
+
+  // Landing straight on /commercial or /corporate should show the grid, not the hero.
+  useEffect(() => {
+    if (window.location.pathname !== "/") {
+      document.getElementById("work")?.scrollIntoView();
+    }
+  }, []);
+
+  const selectTab = (tab: WorkTab) => {
+    router.push(TAB_PATHS[tab], { scroll: false });
+  };
 
   const selectProject = (project: WorkProject) => {
     if (closeTimerRef.current) {
@@ -232,7 +253,7 @@ export function WorkSection() {
 
           <div className="flex w-full max-w-sm items-center justify-center gap-1 bg-secondary p-1 sm:w-auto">
             <button
-              onClick={() => setActiveTab("creative")}
+              onClick={() => selectTab("creative")}
               className={`min-w-0 flex-1 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all sm:flex-none sm:px-6 ${
                 activeTab === "creative"
                   ? "bg-foreground text-background"
@@ -242,7 +263,7 @@ export function WorkSection() {
               Commercial
             </button>
             <button
-              onClick={() => setActiveTab("corporate")}
+              onClick={() => selectTab("corporate")}
               className={`min-w-0 flex-1 whitespace-nowrap px-4 py-2 text-sm font-medium transition-all sm:flex-none sm:px-6 ${
                 activeTab === "corporate"
                   ? "bg-foreground text-background"

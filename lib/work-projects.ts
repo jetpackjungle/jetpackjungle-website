@@ -121,6 +121,42 @@ export const creativeProjects: WorkProject[] = [
 
 export const corporateProjects: WorkProject[] = [
   {
+    title: "ELFC",
+    slug: "elfc-life-at-elfc",
+    category: "Corporate",
+    thumbnail: "/work/elfc-1.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=YrwIFK9hp2w",
+    client: "ELFC",
+    services: "Production | Post-Production",
+  },
+  {
+    title: "Glenveagh",
+    slug: "glenveagh-land-services",
+    category: "Corporate",
+    thumbnail: "/work/glenveagh-land-services.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=4hgkqJ1Xr2c",
+    client: "Glenveagh",
+    services: "Post-Production",
+  },
+  {
+    title: "Glenveagh",
+    slug: "glenveagh-kate-george",
+    category: "Corporate",
+    thumbnail: "/work/glenveagh-kate-george.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=6tTwsd4tZ60",
+    client: "Glenveagh",
+    services: "Post-Production",
+  },
+  {
+    title: "Glenveagh",
+    slug: "glenveagh-joe",
+    category: "Corporate",
+    thumbnail: "/work/glenveagh-joe.jpg",
+    videoUrl: "https://www.youtube.com/watch?v=Swp3U9vfX5s",
+    client: "Glenveagh",
+    services: "Post-Production",
+  },
+  {
     title: "Irish Life Health",
     slug: "irish-life-health",
     category: "Corporate",
