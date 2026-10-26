@@ -15,14 +15,14 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ## Scripts
 
-| Script | Description |
-| --- | --- |
-| `bun run dev` | Start the development server |
-| `bun run build` | Production build |
-| `bun run start` | Serve the production build |
-| `bun run check` | Format (oxfmt), lint (oxlint) and typecheck (tsc) |
-| `bun run check:full` | `check` plus a production build |
-| `bun run audit` | Dead code, unused and unlisted dependencies |
+| Script               | Description                                       |
+| -------------------- | ------------------------------------------------- |
+| `bun run dev`        | Start the development server                      |
+| `bun run build`      | Production build                                  |
+| `bun run start`      | Serve the production build                        |
+| `bun run check`      | Format (oxfmt), lint (oxlint) and typecheck (tsc) |
+| `bun run check:full` | `check` plus a production build                   |
+| `bun run audit`      | Dead code, unused and unlisted dependencies       |
 
 ## Project structure
 
@@ -39,8 +39,8 @@ The homepage is composed in `app/page.tsx` from the section components in `compo
 
 ## Environment
 
-| Variable | Purpose |
-| --- | --- |
+| Variable                        | Purpose                                                   |
+| ------------------------------- | --------------------------------------------------------- |
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics measurement ID (falls back to a default) |
 
 The contact form posts to `app/api/form/route.ts`, which sends email via [Resend](https://resend.com).

@@ -2,15 +2,23 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Play } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { ShowreelModal } from "@/components/showreel-modal";
 
 const HERO_TEXT_IDLE_DELAY = 1800;
+
+// Each work filter has its own showreel; /corporate gets the corporate cut.
+const COMMERCIAL_SHOWREEL_ID = "1190123579";
+const CORPORATE_SHOWREEL_ID = "1186264537";
 
 export function Hero() {
   const [isHeroTextVisible, setIsHeroTextVisible] = useState(false);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
   const [isTouchViewport, setIsTouchViewport] = useState(false);
   const [showreelOpen, setShowreelOpen] = useState(false);
+  const pathname = usePathname();
+  const isCorporate = pathname === "/corporate";
+  const showreelId = isCorporate ? CORPORATE_SHOWREEL_ID : COMMERCIAL_SHOWREEL_ID;
   const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -140,7 +148,8 @@ export function Hero() {
             We craft cinematic stories that move audiences
           </h1>
           <p className="mt-5 max-w-xl text-base text-white sm:text-lg md:mt-6 md:text-xl">
-            Jetpack Jungle is a Dublin-based creative video agency. Concept to delivery for brands that want work worth watching.
+            Jetpack Jungle is a Dublin-based creative video agency. Concept to delivery for brands
+            that want work worth watching.
           </p>
           <button
             type="button"
@@ -158,8 +167,8 @@ export function Hero() {
       <ShowreelModal
         open={showreelOpen}
         onOpenChange={setShowreelOpen}
-        vimeoId="1190123579"
-        title="Showreel"
+        vimeoId={showreelId}
+        title={isCorporate ? "Corporate Showreel" : "Showreel"}
       />
     </section>
   );
